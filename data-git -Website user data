@@ -1,0 +1,13 @@
+sudo apt update
+sudo apt install nginx git -y
+
+sudo rm -rf /var/www/html/*
+
+git clone https://github.com/Ashish-Shankar/Website-deploy-project.git /tmp/website
+
+sudo cp -r /tmp/website/* /var/www/html/
+
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R 755 /var/www/html
+
+sudo systemctl restart nginx
